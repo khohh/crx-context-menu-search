@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Goto",
+  "description": "Select a text and go to the specified URL",
+  "version": "1.0.0",
+  "icons": {
+    "16": "img/16x16.png",
+    "48": "img/48x48.png",
+    "128": "img/128x128.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": ["js/event-page.js"]
+  },
+  "options_ui": {
+    "chrome_style": true,
+    "page": "html/options.html"
+  }
+}

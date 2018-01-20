@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 500px;
+}
+
+.hidden {
+  display: none!important;
+}
+
+fieldset {
+  border: 0;
+  margin: 5px 2px;
+  padding: 0;
+}
+
+.name {
+  width: 188px;
+}
+
+.url {
+  width: 292px;
+}
+
+.remove-fieldset-button {
+  color: #f00;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#buttons-wrapper {
+  width: 484px;
+}
+
+#save-button,
+#add-button {
+  display: block;
+  margin-top: 10px;
+}
+
+#save-button {
+  float: left;
+}
+
+#saved-notification {
+  float: left;
+  margin: 14px 0 0 5px;
+}
+
+#add-button {
+  float: right;
+}
