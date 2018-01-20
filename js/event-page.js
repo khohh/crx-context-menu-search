@@ -14,11 +14,14 @@
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.sync.get(null, function (storage) {
     if (!storage.fieldsets) {
-      chrome.storage.sync.set({
+      var initialStorage = {
         fieldsets: [{
-          name: '',
-          url: ''
+          name: 'YouTube',
+          url: 'https://youtube.com/results?search_query=%s'
         }]
+      };
+      chrome.storage.sync.set(initialStorage, function () {
+        setContextMenuItems(initialStorage);
       });
     } else {
       setContextMenuItems(storage);
