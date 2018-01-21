@@ -38,6 +38,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
     if (document.querySelectorAll('.remove-fieldset-button').length === 1) {
       document.querySelector('.remove-fieldset-button').classList.add('hidden');
+      document.querySelector('.up-down-arrow').classList.add('invisible');
     }
   });
 
@@ -54,6 +55,10 @@ window.addEventListener('DOMContentLoaded', function () {
       .querySelector('.remove-fieldset-button')
       .classList
       .remove('hidden');
+    document
+      .querySelector('.up-down-arrow')
+      .classList
+      .remove('invisible');
   });
 
   saveButton.addEventListener('click', function () {
@@ -84,10 +89,14 @@ window.addEventListener('DOMContentLoaded', function () {
       removeFieldSetButton.parentElement.remove();
       var firstRemoveFieldsetButton =
         document.querySelector('.remove-fieldset-button');
+      var firstUpDownArrow =
+        document.querySelector('.up-down-arrow');
       if (document.querySelectorAll('.remove-fieldset-button').length === 1) {
         firstRemoveFieldsetButton.classList.add('hidden');
+        firstUpDownArrow.classList.add('invisible');
       } else {
         firstRemoveFieldsetButton.classList.remove('hidden');
+        firstUpDownArrow.classList.remove('invisible');
       }
     }
   });

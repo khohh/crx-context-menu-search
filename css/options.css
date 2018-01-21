@@ -12,6 +12,10 @@ body {
   display: none!important;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 h1,
 h2 {
   text-align: center;
