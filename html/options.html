@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Options</title>
     <link rel="stylesheet" href="../css/options.css">
-    <script src="../js/Sortable.min.js"></script>
+    <script src="../js/lib/Sortable.min.js"></script>
     <script src="../js/common.js"></script>
     <script src="../js/options.js"></script>
 </head>
@@ -20,12 +20,17 @@
             </li>
         </template>
     </ul>
-    <div id="buttons-wrapper">
+    <div id="save-add-buttons-wrapper">
         <button id="save-button">
             Save
             <span id="saved-notification" class="hidden">Saved</span>
         </button>
         <button id="add-button">Add</button>
+    </div>
+    <hr>
+    <div id="export-import-buttons-wrapper">
+        <button id="export-button">Export</button>
+        <button id="import-button">Import</button>
     </div>
     <h2>Examples</h2>
     <ul id="examples">

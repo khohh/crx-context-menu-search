@@ -59,7 +59,8 @@ ul#examples li {
 
 /* Buttons */
 
-#buttons-wrapper {
+#save-add-buttons-wrapper,
+#export-import-buttons-wrapper {
   display: flex;
   justify-content: space-between;
   width: 467px;
@@ -79,4 +80,11 @@ ul#examples li {
 #close-button-wrapper {
   text-align: center;
   text-indent: -18px;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid #bfbfbf;
+  width: 467px;
+  margin: 14px auto;
 }
