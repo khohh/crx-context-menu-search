@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Goto",
   "description": "Select a text and go to the specified URL",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "icons": {
     "16": "img/16x16.png",
     "48": "img/48x48.png",

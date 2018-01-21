@@ -15,9 +15,8 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Elements
 
-  var form = document.getElementById('form');
+  var listOfFieldsets = document.getElementById('list-of-fieldsets');
   var fieldsetTemplate = document.getElementById('fieldset-template');
-  var buttonsWrapper = document.getElementById('buttons-wrapper');
   var addButton = document.getElementById('add-button');
   var saveButton = document.getElementById('save-button');
   var savedNotification = document.getElementById('saved-notification');
@@ -34,7 +33,7 @@ window.addEventListener('DOMContentLoaded', function () {
             fieldset.querySelector('.url').value =
               storage.fieldsets[index].url;
           }
-          form.insertBefore(fieldset, buttonsWrapper);
+          listOfFieldsets.insertBefore(fieldset, fieldsetTemplate);
         }
     }
     if (document.querySelectorAll('.remove-fieldset-button').length === 1) {
@@ -42,23 +41,26 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  Sortable.create(listOfFieldsets);
+
   // Events
 
-  addButton.addEventListener('click', function (eventObject) {
-    eventObject.preventDefault();
-    form.insertBefore(fieldsetTemplate.content.cloneNode(true), buttonsWrapper);
+  addButton.addEventListener('click', function () {
+    listOfFieldsets.insertBefore(
+      fieldsetTemplate.content.cloneNode(true),
+      fieldsetTemplate
+    );
     document
       .querySelector('.remove-fieldset-button')
       .classList
       .remove('hidden');
   });
 
-  saveButton.addEventListener('click', function (eventObject) {
-    eventObject.preventDefault();
+  saveButton.addEventListener('click', function () {
     var data = {
       fieldsets: []
     };
-    var fieldsets = document.querySelectorAll('.fieldset');
+    var fieldsets = listOfFieldsets.querySelectorAll('li');
     for (var i = 0; i < fieldsets.length; i++) {
       data.fieldsets.push({
         name: fieldsets[i].querySelector('.name').value,
@@ -76,7 +78,7 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  form.addEventListener('click', function (eventObject) {
+  listOfFieldsets.addEventListener('click', function (eventObject) {
     var removeFieldSetButton = eventObject.target;
     if (removeFieldSetButton.classList.contains('remove-fieldset-button')) {
       removeFieldSetButton.parentElement.remove();

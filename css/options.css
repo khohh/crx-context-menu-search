@@ -12,14 +12,35 @@ body {
   display: none!important;
 }
 
-fieldset {
-  border: 0;
-  margin: 5px 2px;
-  padding: 0;
+h1,
+h2 {
+  text-align: center;
+  text-indent: -18px;
+}
+
+/* Fieldsets */
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul#examples {
+  margin-left: 15px;
+}
+
+ul#examples li {
+  margin: 5px 0;
+}
+
+.up-down-arrow {
+  cursor: move;
+  font-size: 25px;
+  vertical-align: sub;
 }
 
 .name {
-  width: 188px;
+  width: 170px;
 }
 
 .url {
@@ -29,29 +50,24 @@ fieldset {
 .remove-fieldset-button {
   color: #f00;
   cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
+  font-size: 17px;
 }
+
+/* Buttons */
 
 #buttons-wrapper {
-  width: 484px;
-}
-
-#save-button,
-#add-button {
-  display: block;
-  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 467px;
+  margin-left: 16px;
 }
 
 #save-button {
-  float: left;
+  position: relative;
 }
 
 #saved-notification {
-  float: left;
-  margin: 14px 0 0 5px;
-}
-
-#add-button {
-  float: right;
+  position: absolute;
+  top: 3px;
+  right: -40px;
 }
