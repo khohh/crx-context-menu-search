@@ -71,8 +71,7 @@ window.addEventListener('DOMContentLoaded', function () {
         savedNotification.classList.add('hidden');
       }, 1000);
       chrome.contextMenus.removeAll(function () {
-        // noinspection JSUnresolvedFunction
-        chrome.extension.getBackgroundPage().setContextMenuItems(data);
+        setContextMenuItems(data);
       });
     });
   });

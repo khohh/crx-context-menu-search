@@ -14,7 +14,7 @@
   ],
   "background": {
     "persistent": false,
-    "scripts": ["js/event-page.js"]
+    "scripts": ["js/common.js", "js/event-page.js"]
   },
   "options_ui": {
     "chrome_style": true,
