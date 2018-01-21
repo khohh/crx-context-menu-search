@@ -75,3 +75,8 @@ ul#examples li {
   top: 3px;
   right: -40px;
 }
+
+#close-button-wrapper {
+  text-align: center;
+  text-indent: -18px;
+}

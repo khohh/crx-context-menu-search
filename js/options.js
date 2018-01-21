@@ -101,4 +101,11 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  document
+    .getElementById('close-button-wrapper')
+    .querySelector('button')
+    .addEventListener('click', function () {
+      window.close();
+    });
+
 });
