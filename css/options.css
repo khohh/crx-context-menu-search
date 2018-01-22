@@ -29,12 +29,16 @@ ul {
   padding-left: 0;
 }
 
-ul#examples {
+ul#list-of-examples {
   margin-left: 15px;
 }
 
-ul#examples li {
+ul#list-of-examples li {
   margin: 5px 0;
+}
+
+ul#list-of-examples .name {
+  margin-right: 4px;
 }
 
 .up-down-arrow {

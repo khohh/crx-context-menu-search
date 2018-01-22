@@ -1,6 +1,6 @@
 ;'use strict';
 
-/* global chrome */
+/* global app, chrome */
 
 /**
  * @property chrome.contextMenus
@@ -14,17 +14,11 @@
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.sync.get(null, function (storage) {
     if (!storage.fieldsets) {
-      var initialStorage = {
-        fieldsets: [{
-          name: 'YouTube',
-          url: 'https://youtube.com/results?search_query=%s'
-        }]
-      };
-      chrome.storage.sync.set(initialStorage, function () {
-        setContextMenuItems(initialStorage);
+      chrome.storage.sync.set(app.initialStorage, function () {
+        app.methods.setContextMenuItems(app.initialStorage);
       });
     } else {
-      setContextMenuItems(storage);
+      app.methods.setContextMenuItems(storage);
     }
   });
 });

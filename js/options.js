@@ -1,6 +1,6 @@
 ;'use strict';
 
-/* global chrome */
+/* global app, chrome */
 
 /**
  * @property chrome.contextMenus
@@ -22,6 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
   var addButton = document.getElementById('add-button');
   var saveButton = document.getElementById('save-button');
   var savedNotification = document.getElementById('saved-notification');
+  var listOfExamples = document.getElementById('list-of-examples');
 
   // Initialization
 
@@ -59,6 +60,30 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   Sortable.create(listOfFieldsets);
+
+  // Initialization - Examples
+
+  (function () {
+    for (var index in app.initialStorage.fieldsets) {
+
+      var nameInput = document.createElement('input');
+      nameInput.disabled = true;
+      nameInput.className = 'name';
+      nameInput.value = app.initialStorage.fieldsets[index].name;
+
+      var urlInput = document.createElement('input');
+      urlInput.disabled = true;
+      urlInput.className = 'url';
+      urlInput.value = app.initialStorage.fieldsets[index].url;
+
+      var li = document.createElement('li');
+      li.appendChild(nameInput);
+      li.appendChild(urlInput);
+
+      listOfExamples.appendChild(li);
+
+    }
+  })();
 
   // Events
 
@@ -104,7 +129,7 @@ window.addEventListener('DOMContentLoaded', function () {
         savedNotification.classList.add('hidden');
       }, 1000);
       chrome.contextMenus.removeAll(function () {
-        setContextMenuItems(data);
+        app.methods.setContextMenuItems(data);
       });
     });
 
@@ -145,7 +170,7 @@ window.addEventListener('DOMContentLoaded', function () {
         var url = 'data:application/json;base64,' + btoa(result);
         chrome.downloads.download({
           url: url,
-          filename: 'chrome-extension__go-to__settings.json'
+          filename: 'context-menu-search.json'
         });
       });
     });
