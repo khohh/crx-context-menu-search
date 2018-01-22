@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Goto",
-  "description": "Select a text and go to the specified URL",
-  "version": "1.3.1",
+  "description": "Search for selected text using the context menu",
+  "version": "1.3.2",
   "icons": {
     "16": "img/16x16.png",
     "48": "img/48x48.png",
