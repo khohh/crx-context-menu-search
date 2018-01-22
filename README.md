@@ -1,6 +1,6 @@
-# Goto
+# Go to
 
-- Chrome Web Store: https://chrome.google.com/webstore/detail/goto/idpcgabojogahgmhdgnjkmdliaeeofka
+- Chrome Web Store: https://chrome.google.com/webstore/detail/go-to/idpcgabojogahgmhdgnjkmdliaeeofka
 
 ![Options](img/screenshots/original/options.png)
 

@@ -145,7 +145,7 @@ window.addEventListener('DOMContentLoaded', function () {
         var url = 'data:application/json;base64,' + btoa(result);
         chrome.downloads.download({
           url: url,
-          filename: 'chrome-extension-goto-settings.json'
+          filename: 'chrome-extension__go-to__settings.json'
         });
       });
     });
