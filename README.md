@@ -6,4 +6,7 @@
 
 ![Example](img/screenshots/original/context-menu.png)
 
-- Icons: https://iconfinder.com/icons/173182/arrow_circle_right_icon
+## Icons
+
+- https://iconfinder.com/icons/173182/arrow_circle_right_icon
+- https://iconfinder.com/icons/171427/search_zoom_icon
