@@ -7,7 +7,7 @@ app.methods = {};
 app.initialStorage = {
   fieldsets: [{
     name: 'Google',
-    url: 'https://google.com/search?q=%s'
+    url: 'https://google.com/search?q="%s"'
   },{
     name: 'YouTube',
     url: 'https://youtube.com/results?search_query=%s'
