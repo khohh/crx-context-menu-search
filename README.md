@@ -2,11 +2,10 @@
 
 - Chrome Web Store: https://chrome.google.com/webstore/detail/idpcgabojogahgmhdgnjkmdliaeeofka
 
-![Options](img/screenshots/original/options.png)
+![Options](img/screenshots/640x400/options.png)
 
-![Example](img/screenshots/original/context-menu.png)
+---
 
-## Icons
+![Example](img/screenshots/640x400/example.png)
 
-- https://iconfinder.com/icons/173182/arrow_circle_right_icon
-- https://iconfinder.com/icons/171427/search_zoom_icon
+- Icons: https://iconfinder.com/icons/171427/search_zoom_icon
