@@ -59,7 +59,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
   }
 
-  Sortable.create(listOfFieldsets);
+  Sortable.create(listOfFieldsets, {
+    filter: '.name, .url, .remove-fieldset-button',
+    preventOnFilter: false
+  });
 
   // Initialization - Examples
 
