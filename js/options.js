@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   chrome.storage.sync.get(null, function (storage) {
 
-    setFieldsets(storage);
+    setFieldsets(storage.fieldsets);
 
     if (document.querySelectorAll('.remove-fieldset-button').length === 1) {
       document.querySelector('.remove-fieldset-button').classList.add('hidden');
@@ -37,22 +37,26 @@ window.addEventListener('DOMContentLoaded', function () {
 
   });
 
-  function setFieldsets(storage) {
+  function setFieldsets(fieldsets) {
+
+    if (!fieldsets) {
+      return;
+    }
 
     // Remove old fieldsets
 
-    var fieldsets = listOfFieldsets.querySelectorAll('li');
-    for (var i = 0; i < fieldsets.length; i++) {
-      fieldsets[i].remove();
+    var oldFieldsets = listOfFieldsets.querySelectorAll('li');
+    for (var i = 0; i < oldFieldsets.length; i++) {
+      oldFieldsets[i].remove();
     }
 
     // Add new fieldsets
 
-    for (var index in storage.fieldsets) {
+    for (var index in fieldsets) {
       var fieldset = fieldsetTemplate.content.cloneNode(true);
-      if (storage.fieldsets.hasOwnProperty(index)) {
-        fieldset.querySelector('.name').value = storage.fieldsets[index].name;
-        fieldset.querySelector('.url').value = storage.fieldsets[index].url;
+      if (fieldsets.hasOwnProperty(index)) {
+        fieldset.querySelector('.name').value = fieldsets[index].name;
+        fieldset.querySelector('.url').value = fieldsets[index].url;
       }
       listOfFieldsets.insertBefore(fieldset, fieldsetTemplate);
     }
@@ -131,9 +135,6 @@ window.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () {
         savedNotification.classList.add('hidden');
       }, 1000);
-      chrome.contextMenus.removeAll(function () {
-        app.methods.setContextMenuItems(data);
-      });
     });
 
   });
@@ -195,7 +196,7 @@ window.addEventListener('DOMContentLoaded', function () {
         var reader = new FileReader();
         reader.onload = function () {
           var storage = JSON.parse(reader.result);
-          setFieldsets(storage);
+          setFieldsets(storage.fieldsets);
           saveButton.click();
         };
         reader.readAsText(file);
