@@ -78,7 +78,7 @@ ul#list-of-examples .name {
 #saved-notification {
   position: absolute;
   top: 3px;
-  right: -40px;
+  left: -40px;
 }
 
 #close-button-wrapper {
