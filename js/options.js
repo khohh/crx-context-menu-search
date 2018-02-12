@@ -22,8 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
   var addButton = document.getElementById('add-button');
   var saveButton = document.getElementById('save-button');
   var savedNotification = document.getElementById('saved-notification');
-  var sortAlphabeticallyButton =
-    document.getElementById('sort-alphabetically-button');
+  var sortAlphabeticallyButton = document.getElementById('sort-alphabetically-button');
   var listOfExamples = document.getElementById('list-of-examples');
 
   // Initialization
