@@ -22,6 +22,8 @@ window.addEventListener('DOMContentLoaded', function () {
   var addButton = document.getElementById('add-button');
   var saveButton = document.getElementById('save-button');
   var savedNotification = document.getElementById('saved-notification');
+  var sortAlphabeticallyButton =
+    document.getElementById('sort-alphabetically-button');
   var listOfExamples = document.getElementById('list-of-examples');
 
   // Initialization
@@ -157,6 +159,34 @@ window.addEventListener('DOMContentLoaded', function () {
         firstRemoveFieldsetButton.classList.remove('hidden');
         firstUpDownArrow.classList.remove('invisible');
       }
+    }
+
+  });
+
+  // Events - Sort alphabetically
+
+  sortAlphabeticallyButton.addEventListener('click', function () {
+
+    var fieldsets = listOfFieldsets.querySelectorAll('li');
+
+    var unorderedFieldsets = {};
+
+    for (var i = 0; i < fieldsets.length; i++) {
+      unorderedFieldsets[
+        fieldsets[i].querySelector('.name').value
+      ] = fieldsets[i];
+    }
+
+    var orderedFieldsets = {};
+
+    Object.keys(unorderedFieldsets).sort().forEach(function(key) {
+      orderedFieldsets[key] = unorderedFieldsets[key];
+    });
+
+    listOfFieldsets.innerHTML = '';
+
+    for (var name in orderedFieldsets) {
+      listOfFieldsets.appendChild(orderedFieldsets[name]);
     }
 
   });
