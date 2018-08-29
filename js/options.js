@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', function () {
         fieldset.querySelector('.name').value = fieldsets[index].name;
         fieldset.querySelector('.url').value = fieldsets[index].url;
       }
-      listOfFieldsets.insertBefore(fieldset, fieldsetTemplate);
+      listOfFieldsets.appendChild(fieldset);
     }
 
   }
@@ -99,10 +99,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   addButton.addEventListener('click', function () {
 
-    listOfFieldsets.insertBefore(
-      fieldsetTemplate.content.cloneNode(true),
-      fieldsetTemplate
-    );
+    listOfFieldsets.appendChild(fieldsetTemplate.content.cloneNode(true));
 
     document
       .querySelector('.remove-fieldset-button')

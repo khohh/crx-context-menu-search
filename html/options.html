@@ -10,16 +10,7 @@
 </head>
 <body>
     <h1>Options</h1>
-    <ul id="list-of-fieldsets">
-        <template id="fieldset-template">
-            <li>
-                <span class="up-down-arrow">↕</span>
-                <input placeholder="Name" class="name">
-                <input placeholder="URL with %s in place of query" class="url">
-                <span class="remove-fieldset-button">×</span>
-            </li>
-        </template>
-    </ul>
+    <ul id="list-of-fieldsets"></ul>
     <div id="save-add-buttons-wrapper">
         <button id="add-button">Add</button>
         <button id="sort-alphabetically-button">Sort alphabetically</button>
@@ -38,5 +29,13 @@
     <div id="close-button-wrapper">
         <button>Close</button>
     </div>
+    <template id="fieldset-template">
+        <li>
+            <span class="up-down-arrow">↕</span>
+            <input placeholder="Name" class="name">
+            <input placeholder="URL with %s in place of query" class="url">
+            <span class="remove-fieldset-button">×</span>
+        </li>
+    </template>
 </body>
 </html>
