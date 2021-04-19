@@ -19,7 +19,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
   var listOfFieldsets = document.getElementById('list-of-fieldsets');
   var fieldsetTemplate = document.getElementById('fieldset-template');
+  let separatorTemplate = document.getElementById('separator-template');
   var addButton = document.getElementById('add-button');
+  let addSeparatorButton = document.getElementById('add-separator-button');
   var saveButton = document.getElementById('save-button');
   var savedNotification = document.getElementById('saved-notification');
   var sortAlphabeticallyButton = document.getElementById('sort-alphabetically-button');
@@ -54,8 +56,11 @@ window.addEventListener('DOMContentLoaded', function () {
     // Add new fieldsets
 
     for (var index in fieldsets) {
-      var fieldset = fieldsetTemplate.content.cloneNode(true);
-      if (fieldsets.hasOwnProperty(index)) {
+      let fieldset;
+      if (fieldsets[index].name === '_separator_') {
+        fieldset = separatorTemplate.content.cloneNode(true);
+      } else {
+        fieldset = fieldsetTemplate.content.cloneNode(true);
         fieldset.querySelector('.name').value = fieldsets[index].name;
         fieldset.querySelector('.url').value = fieldsets[index].url;
       }
@@ -112,6 +117,23 @@ window.addEventListener('DOMContentLoaded', function () {
 
   });
 
+  // Events - Add separator fieldset
+
+  addSeparatorButton.addEventListener('click', function () {
+
+    listOfFieldsets.appendChild(separatorTemplate.content.cloneNode(true));
+
+    document
+      .querySelector('.remove-fieldset-button')
+      .classList
+      .remove('hidden');
+    document
+      .querySelector('.up-down-arrow')
+      .classList
+      .remove('invisible');
+
+  });
+
   // Events - Save fieldsets
 
   saveButton.addEventListener('click', function () {
@@ -122,10 +144,17 @@ window.addEventListener('DOMContentLoaded', function () {
 
     var fieldsets = listOfFieldsets.querySelectorAll('li');
     for (var i = 0; i < fieldsets.length; i++) {
-      data.fieldsets.push({
-        name: fieldsets[i].querySelector('.name').value,
-        url: fieldsets[i].querySelector('.url').value
-      });
+      let name = fieldsets[i].querySelector('.name');
+      if (name) {
+        data.fieldsets.push({
+          name: name.value,
+          url: fieldsets[i].querySelector('.url').value
+        });
+      } else {
+        data.fieldsets.push({
+          name: '_separator_'
+        });
+      }
     }
 
     chrome.storage.sync.set(data, function () {
@@ -168,9 +197,10 @@ window.addEventListener('DOMContentLoaded', function () {
     var unorderedFieldsets = {};
 
     for (var i = 0; i < fieldsets.length; i++) {
-      unorderedFieldsets[
-        fieldsets[i].querySelector('.name').value
-      ] = fieldsets[i];
+      let name = fieldsets[i].querySelector('.name');
+      if (name) {
+        unorderedFieldsets[name.value] = fieldsets[i];
+      }
     }
 
     var orderedFieldsets = {};

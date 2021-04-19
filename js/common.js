@@ -34,11 +34,13 @@ app.initialStorage = {
  */
 app.methods.setContextMenuItems = function (fieldsets) {
   for (var index in fieldsets) {
-    if (
-      fieldsets.hasOwnProperty(index) &&
-      fieldsets[index].name &&
-      fieldsets[index].url
-    ) {
+    if (fieldsets[index].name === '_separator_') {
+      chrome.contextMenus.create({
+        id: index,
+        title: '------------------------------',
+        contexts: ['selection']
+      });
+    } else {
       chrome.contextMenus.create({
         id: index,
         title: fieldsets[index].name,

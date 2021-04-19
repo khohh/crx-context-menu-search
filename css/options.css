@@ -55,6 +55,13 @@ ul#list-of-examples .name {
   width: 292px;
 }
 
+.separator {
+  border-top: 1px solid #bfbfbf;
+  display: inline-block;
+  width: 463px;
+  vertical-align: middle;
+}
+
 .remove-fieldset-button {
   color: #f00;
   cursor: pointer;
@@ -64,11 +71,16 @@ ul#list-of-examples .name {
 /* Buttons */
 
 #save-add-buttons-wrapper,
+#sort-alphabetically-button-wrapper,
 #export-import-buttons-wrapper {
   display: flex;
   justify-content: space-between;
   width: 467px;
   margin-left: 16px;
+}
+
+#sort-alphabetically-button-wrapper {
+  justify-content: center;
 }
 
 #save-button {
