@@ -37,8 +37,8 @@ app.methods.setContextMenuItems = function (fieldsets) {
     if (fieldsets[index].name === '_separator_') {
       chrome.contextMenus.create({
         id: index,
-        title: '------------------------------',
-        contexts: ['selection']
+        contexts: ['selection'],
+        type: 'separator'
       });
     } else {
       chrome.contextMenus.create({
