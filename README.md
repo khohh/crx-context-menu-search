@@ -2,10 +2,8 @@
 
 - Chrome Web Store: https://chrome.google.com/webstore/detail/idpcgabojogahgmhdgnjkmdliaeeofka
 
-![Options](img/screenshots/640x400/options.png)
+![Example](img/screenshots/example.png)
 
----
+![Options](img/screenshots/options.png)
 
-![Example](img/screenshots/640x400/example.png)
-
-- Icons: https://iconfinder.com/icons/171427/search_zoom_icon
+- Icon: https://iconfinder.com/icons/171427/search_zoom_icon
