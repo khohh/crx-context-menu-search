@@ -44,8 +44,7 @@ chrome.storage.onChanged.addListener(function (changes) {
 chrome.contextMenus.onClicked.addListener(function (info) {
   chrome.storage.sync.get(null, function (storage) {
     let url = storage.fieldsets[info.menuItemId].url;
-    url = url.replace('&', '%26');
-    url = url.replace('%s', info.selectionText);
+    url = url.replace('%s', info.selectionText.replace('&', '%26'));
     window.open(url);
   });
 });
