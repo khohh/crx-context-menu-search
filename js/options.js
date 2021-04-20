@@ -77,24 +77,31 @@ window.addEventListener('DOMContentLoaded', function () {
   // Initialization - Examples
 
   (function () {
-    for (var index in app.initialStorage.fieldsets) {
+    for (const index in app.initialStorage.fieldsets) {
 
-      var nameInput = document.createElement('input');
-      nameInput.disabled = true;
-      nameInput.className = 'name';
-      nameInput.value = app.initialStorage.fieldsets[index].name;
+      const li = document.createElement('li');
+      const fieldset = app.initialStorage.fieldsets[index];
 
-      var urlInput = document.createElement('input');
-      urlInput.disabled = true;
-      urlInput.className = 'url';
-      urlInput.value = app.initialStorage.fieldsets[index].url;
+      if (fieldset.name === '_separator_') {
+        const spanSeparator = document.createElement('span');
+        spanSeparator.className = 'separator';
+        li.appendChild(spanSeparator);
+      } else {
+        const nameInput = document.createElement('input');
+        nameInput.disabled = true;
+        nameInput.className = 'name';
+        nameInput.value = app.initialStorage.fieldsets[index].name;
 
-      var li = document.createElement('li');
-      li.appendChild(nameInput);
-      li.appendChild(urlInput);
+        const urlInput = document.createElement('input');
+        urlInput.disabled = true;
+        urlInput.className = 'url';
+        urlInput.value = app.initialStorage.fieldsets[index].url;
+
+        li.appendChild(nameInput);
+        li.appendChild(urlInput);
+      }
 
       listOfExamples.appendChild(li);
-
     }
   })();
 

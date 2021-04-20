@@ -9,6 +9,9 @@ app.initialStorage = {
     name: 'Google - Exact match',
     url: 'https://google.com/search?q="%s"'
   }, {
+    name: 'Google Images',
+    url: 'https://google.com/search?q=%s&tbm=isch'
+  }, {
     name: 'YouTube',
     url: 'https://youtube.com/results?search_query=%s'
   }, {
@@ -18,14 +21,13 @@ app.initialStorage = {
     name: 'Wikipedia',
     url: 'https://wikipedia.org/wiki/%s'
   }, {
+    name: '_separator_'
+  }, {
     name: 'Google Maps',
     url: 'https://google.com/maps/search/%s'
   }, {
     name: 'Yandex Maps',
     url: 'https://yandex.com/maps?text=%s'
-  }, {
-    name: 'Google Images',
-    url: 'https://google.com/search?q=%s&tbm=isch'
   }]
 };
 
