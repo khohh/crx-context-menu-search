@@ -176,14 +176,11 @@ window.addEventListener('DOMContentLoaded', function () {
   // Events - Remove fieldset
 
   listOfFieldsets.addEventListener('click', function (eventObject) {
-
-    var removeFieldSetButton = eventObject.target;
+    const removeFieldSetButton = eventObject.target;
     if (removeFieldSetButton.classList.contains('remove-fieldset-button')) {
       removeFieldSetButton.parentElement.remove();
-      var firstRemoveFieldsetButton =
-        document.querySelector('.remove-fieldset-button');
-      var firstUpDownArrow =
-        document.querySelector('.up-down-arrow');
+      const firstRemoveFieldsetButton = document.querySelector('.remove-fieldset-button');
+      const firstUpDownArrow = document.querySelector('.up-down-arrow');
       if (document.querySelectorAll('.remove-fieldset-button').length === 1) {
         firstRemoveFieldsetButton.classList.add('hidden');
         firstUpDownArrow.classList.add('invisible');
@@ -192,7 +189,6 @@ window.addEventListener('DOMContentLoaded', function () {
         firstUpDownArrow.classList.remove('invisible');
       }
     }
-
   });
 
   // Events - Sort alphabetically
