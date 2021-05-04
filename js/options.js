@@ -78,7 +78,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
   (function () {
     for (const index in app.initialStorage.fieldsets) {
-
       const li = document.createElement('li');
       const fieldset = app.initialStorage.fieldsets[index];
 
