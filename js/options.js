@@ -10,15 +10,15 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Elements
 
-  var listOfFieldsets = document.getElementById('list-of-fieldsets');
-  var fieldsetTemplate = document.getElementById('fieldset-template');
-  let separatorTemplate = document.getElementById('separator-template');
-  var addButton = document.getElementById('add-button');
-  let addSeparatorButton = document.getElementById('add-separator-button');
-  var saveButton = document.getElementById('save-button');
-  var savedNotification = document.getElementById('saved-notification');
-  var sortAlphabeticallyButton = document.getElementById('sort-alphabetically-button');
-  var listOfExamples = document.getElementById('list-of-examples');
+  const listOfFieldsets = document.getElementById('list-of-fieldsets');
+  const fieldsetTemplate = document.getElementById('fieldset-template');
+  const separatorTemplate = document.getElementById('separator-template');
+  const addButton = document.getElementById('add-button');
+  const addSeparatorButton = document.getElementById('add-separator-button');
+  const saveButton = document.getElementById('save-button');
+  const savedNotification = document.getElementById('saved-notification');
+  const sortAlphabeticallyButton = document.getElementById('sort-alphabetically-button');
+  const listOfExamples = document.getElementById('list-of-examples');
 
   // Initialization
 
