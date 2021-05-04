@@ -143,34 +143,26 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Events - Save fieldsets
 
-  saveButton.addEventListener('click', function () {
-
-    var data = {
-      fieldsets: []
+  saveButton.addEventListener('click', () => {
+    const data = {
+      fieldsets: [],
     };
-
-    var fieldsets = listOfFieldsets.querySelectorAll('li');
-    for (var i = 0; i < fieldsets.length; i++) {
-      let name = fieldsets[i].querySelector('.name');
+    const fieldsets = listOfFieldsets.querySelectorAll('li');
+    for (let i = 0; i < fieldsets.length; i++) {
+      const name = fieldsets[i].querySelector('.name');
       if (name) {
         data.fieldsets.push({
           name: name.value,
-          url: fieldsets[i].querySelector('.url').value
+          url: fieldsets[i].querySelector('.url').value,
         });
       } else {
-        data.fieldsets.push({
-          name: '_separator_'
-        });
+        data.fieldsets.push({name: '_separator_'});
       }
     }
-
-    chrome.storage.sync.set(data, function () {
+    chrome.storage.sync.set(data, () => {
       savedNotification.classList.remove('hidden');
-      setTimeout(function () {
-        savedNotification.classList.add('hidden');
-      }, 1000);
+      setTimeout(() => savedNotification.classList.add('hidden'), 1000);
     });
-
   });
 
   // Events - Remove fieldset
