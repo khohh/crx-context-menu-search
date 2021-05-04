@@ -126,19 +126,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Events - Add separator fieldset
 
-  addSeparatorButton.addEventListener('click', function () {
-
+  addSeparatorButton.addEventListener('click', () => {
     listOfFieldsets.appendChild(separatorTemplate.content.cloneNode(true));
-
-    document
-      .querySelector('.remove-fieldset-button')
-      .classList
-      .remove('hidden');
-    document
-      .querySelector('.up-down-arrow')
-      .classList
-      .remove('invisible');
-
+    document.querySelector('.remove-fieldset-button').classList.remove('hidden');
+    document.querySelector('.up-down-arrow').classList.remove('invisible');
   });
 
   // Events - Save fieldsets
