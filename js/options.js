@@ -175,7 +175,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Events - Remove fieldset
 
-  listOfFieldsets.addEventListener('click', function (eventObject) {
+  listOfFieldsets.addEventListener('click', (eventObject) => {
     const removeFieldSetButton = eventObject.target;
     if (removeFieldSetButton.classList.contains('remove-fieldset-button')) {
       removeFieldSetButton.parentElement.remove();
