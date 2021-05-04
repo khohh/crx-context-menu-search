@@ -231,10 +231,10 @@ window.addEventListener('DOMContentLoaded', function () {
    */
   document
     .getElementById('export-button')
-    .addEventListener('click', function () {
-      chrome.storage.sync.get(null, function (storage) {
-        var result = JSON.stringify(storage);
-        var url = 'data:application/json;base64,' + btoa(result);
+    .addEventListener('click', () => {
+      chrome.storage.sync.get(null, (storage) => {
+        const result = JSON.stringify(storage);
+        const url = 'data:application/json;base64,' + btoa(result);
         chrome.downloads.download({
           url: url,
           filename: 'context-menu-search.json'
