@@ -41,21 +41,16 @@ window.addEventListener('DOMContentLoaded', function () {
   });
 
   function setFieldsets(fieldsets) {
-
     if (!fieldsets) {
       return;
     }
-
     // Remove old fieldsets
-
-    var oldFieldsets = listOfFieldsets.querySelectorAll('li');
-    for (var i = 0; i < oldFieldsets.length; i++) {
+    const oldFieldsets = listOfFieldsets.querySelectorAll('li');
+    for (let i = 0; i < oldFieldsets.length; i++) {
       oldFieldsets[i].remove();
     }
-
     // Add new fieldsets
-
-    for (var index in fieldsets) {
+    for (let index in fieldsets) {
       let fieldset;
       if (fieldsets[index].name === '_separator_') {
         fieldset = separatorTemplate.content.cloneNode(true);
@@ -66,12 +61,11 @@ window.addEventListener('DOMContentLoaded', function () {
       }
       listOfFieldsets.appendChild(fieldset);
     }
-
   }
 
   Sortable.create(listOfFieldsets, {
     filter: '.name, .url, .remove-fieldset-button',
-    preventOnFilter: false
+    preventOnFilter: false,
   });
 
   // Initialization - Examples
