@@ -3,14 +3,7 @@
 /* global app, chrome */
 
 /**
- * @property chrome.contextMenus
- * @property chrome.contextMenus.removeAll
  * @property chrome.downloads
- * @property chrome.downloads.download
- * @property chrome.extension
- * @property chrome.extension.getBackgroundPage
- * @property chrome.storage
- * @property chrome.storage.sync
  */
 
 window.addEventListener('DOMContentLoaded', function () {
