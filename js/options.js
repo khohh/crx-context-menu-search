@@ -251,14 +251,14 @@ window.addEventListener('DOMContentLoaded', function () {
     .getElementById('import-button')
     .addEventListener('click', function () {
 
-      var fileChooser = document.createElement('input');
+      const fileChooser = document.createElement('input');
       fileChooser.type = 'file';
 
       fileChooser.addEventListener('change', function () {
-        var file = fileChooser.files[0];
-        var reader = new FileReader();
+        const file = fileChooser.files[0];
+        const reader = new FileReader();
         reader.onload = function () {
-          var storage = JSON.parse(reader.result);
+          const storage = JSON.parse(reader.result);
           setFieldsets(storage.fieldsets);
           saveButton.click();
         };
@@ -268,7 +268,7 @@ window.addEventListener('DOMContentLoaded', function () {
         form.reset();
       });
 
-      var form = document.createElement('form');
+      const form = document.createElement('form');
       form.appendChild(fileChooser);
 
       fileChooser.click();
