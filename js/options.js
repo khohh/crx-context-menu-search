@@ -199,18 +199,18 @@ window.addEventListener('DOMContentLoaded', function () {
 
   sortAlphabeticallyButton.addEventListener('click', function () {
 
-    var fieldsets = listOfFieldsets.querySelectorAll('li');
+    const fieldsets = listOfFieldsets.querySelectorAll('li');
 
-    var unorderedFieldsets = {};
+    const unorderedFieldsets = {};
 
-    for (var i = 0; i < fieldsets.length; i++) {
+    for (let i = 0; i < fieldsets.length; i++) {
       let name = fieldsets[i].querySelector('.name');
       if (name) {
         unorderedFieldsets[name.value] = fieldsets[i];
       }
     }
 
-    var orderedFieldsets = {};
+    const orderedFieldsets = {};
 
     Object.keys(unorderedFieldsets).sort().forEach(function (key) {
       orderedFieldsets[key] = unorderedFieldsets[key];
@@ -218,7 +218,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     listOfFieldsets.innerHTML = '';
 
-    for (var name in orderedFieldsets) {
+    for (let name in orderedFieldsets) {
       listOfFieldsets.appendChild(orderedFieldsets[name]);
     }
 
