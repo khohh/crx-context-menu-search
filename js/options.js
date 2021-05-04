@@ -212,7 +212,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     var orderedFieldsets = {};
 
-    Object.keys(unorderedFieldsets).sort().forEach(function(key) {
+    Object.keys(unorderedFieldsets).sort().forEach(function (key) {
       orderedFieldsets[key] = unorderedFieldsets[key];
     });
 
