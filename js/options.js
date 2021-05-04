@@ -30,14 +30,11 @@ window.addEventListener('DOMContentLoaded', function () {
   // Initialization
 
   chrome.storage.sync.get(null, function (storage) {
-
     setFieldsets(storage.fieldsets);
-
     if (document.querySelectorAll('.remove-fieldset-button').length === 1) {
       document.querySelector('.remove-fieldset-button').classList.add('hidden');
       document.querySelector('.up-down-arrow').classList.add('invisible');
     }
-
   });
 
   function setFieldsets(fieldsets) {
