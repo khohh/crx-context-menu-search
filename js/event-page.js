@@ -3,19 +3,15 @@
 /* global app, chrome */
 
 /**
- * @property chrome.contextMenus
  * @property chrome.contextMenus.onClicked
- * @property chrome.runtime
- * @property chrome.runtime.onInstalled
- * @property chrome.storage
+ * @property chrome.contextMenus.removeAll
  * @property chrome.storage.onChanged
+ * @property chrome.runtime.onInstalled
  * @property chrome.storage.sync
  */
 
-chrome.runtime.onInstalled.addListener(function () {
-  // console.log('Installed');
-  chrome.storage.sync.get(null, function (storage) {
-    // console.log('Storage:', storage);
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.storage.sync.get(null, (storage) => {
     if (!storage.fieldsets) {
       chrome.storage.sync.set(app.initialStorage);
     } else { // When the page reloads
@@ -24,27 +20,20 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 });
 
-/**
- * @param {Object} changes
- * @param {Object} changes.fieldsets
- * @param {Array} changes.fieldsets.newValue
- */
-chrome.storage.onChanged.addListener(function (changes) {
-  // console.log('Storage changed:', changes);
-  chrome.contextMenus.removeAll(function () {
-    app.methods.setContextMenuItems(changes.fieldsets.newValue);
-  });
-});
+chrome.storage.onChanged.addListener((changes) =>
+  chrome.contextMenus.removeAll(
+    () => app.methods.setContextMenuItems(changes.fieldsets.newValue)
+  )
+);
 
 /**
- * @param {Object} info
  * @param {String} info.menuItemId
  * @param {String} info.selectionText
  */
-chrome.contextMenus.onClicked.addListener(function (info) {
-  chrome.storage.sync.get(null, function (storage) {
+chrome.contextMenus.onClicked.addListener(
+  (info) => chrome.storage.sync.get(null, (storage) => {
     let url = storage.fieldsets[info.menuItemId].url;
     url = url.replace('%s', info.selectionText.replace('&', '%26'));
     window.open(url);
-  });
-});
+  })
+);
