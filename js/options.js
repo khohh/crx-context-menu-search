@@ -198,30 +198,22 @@ window.addEventListener('DOMContentLoaded', function () {
   // Events - Sort alphabetically
 
   sortAlphabeticallyButton.addEventListener('click', function () {
-
     const fieldsets = listOfFieldsets.querySelectorAll('li');
-
     const unorderedFieldsets = {};
-
     for (let i = 0; i < fieldsets.length; i++) {
       let name = fieldsets[i].querySelector('.name');
       if (name) {
         unorderedFieldsets[name.value] = fieldsets[i];
       }
     }
-
     const orderedFieldsets = {};
-
     Object.keys(unorderedFieldsets).sort().forEach(function (key) {
       orderedFieldsets[key] = unorderedFieldsets[key];
     });
-
     listOfFieldsets.innerHTML = '';
-
     for (let name in orderedFieldsets) {
       listOfFieldsets.appendChild(orderedFieldsets[name]);
     }
-
   });
 
   // Events - Export
@@ -237,7 +229,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const url = 'data:application/json;base64,' + btoa(result);
         chrome.downloads.download({
           url: url,
-          filename: 'context-menu-search.json'
+          filename: 'context-menu-search.json',
         });
       });
     });
