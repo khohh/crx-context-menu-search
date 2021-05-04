@@ -249,30 +249,23 @@ window.addEventListener('DOMContentLoaded', function () {
    */
   document
     .getElementById('import-button')
-    .addEventListener('click', function () {
-
+    .addEventListener('click', () => {
       const fileChooser = document.createElement('input');
       fileChooser.type = 'file';
-
-      fileChooser.addEventListener('change', function () {
+      fileChooser.addEventListener('change', () => {
         const file = fileChooser.files[0];
         const reader = new FileReader();
-        reader.onload = function () {
-          const storage = JSON.parse(reader.result);
+        reader.onload = () => {
+          const storage = JSON.parse('' + reader.result);
           setFieldsets(storage.fieldsets);
           saveButton.click();
         };
         reader.readAsText(file);
-        // Resets the input so we do get a `change` event,
-        // even if the user chooses the same file
         form.reset();
       });
-
       const form = document.createElement('form');
       form.appendChild(fileChooser);
-
       fileChooser.click();
-
     });
 
   // Events - Close option window
