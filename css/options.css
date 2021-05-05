@@ -8,6 +8,11 @@ body {
   width: 500px;
 }
 
+#app button {
+  width: 27%;
+  padding: 0;
+}
+
 .hidden {
   display: none !important;
 }
