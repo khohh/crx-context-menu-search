@@ -72,7 +72,7 @@ ul#list-of-examples .name {
 
 #save-add-buttons-wrapper,
 #sort-alphabetically-button-wrapper,
-#export-import-buttons-wrapper {
+#import-load-defaults-export-buttons-wrapper {
   display: flex;
   justify-content: space-between;
   width: 467px;

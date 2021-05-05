@@ -169,24 +169,6 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Events - Export
-
-  /**
-   * @see https://stackoverflow.com/a/23167789/4223982
-   */
-  document
-    .getElementById('export-button')
-    .addEventListener('click', () => {
-      chrome.storage.sync.get(null, (storage) => {
-        const result = JSON.stringify(storage);
-        const url = 'data:application/json;base64,' + btoa(result);
-        chrome.downloads.download({
-          url: url,
-          filename: 'context-menu-search.json',
-        });
-      });
-    });
-
   // Events - Import
 
   /**
@@ -211,6 +193,30 @@ window.addEventListener('DOMContentLoaded', function () {
       const form = document.createElement('form');
       form.appendChild(fileChooser);
       fileChooser.click();
+    });
+
+  // Events - Load defaults
+
+  document
+    .getElementById('load-defaults-button')
+    .addEventListener('click', () => setFieldsets(app.initialStorage.fieldsets));
+
+  // Events - Export
+
+  /**
+   * @see https://stackoverflow.com/a/23167789/4223982
+   */
+  document
+    .getElementById('export-button')
+    .addEventListener('click', () => {
+      chrome.storage.sync.get(null, (storage) => {
+        const result = JSON.stringify(storage);
+        const url = 'data:application/json;base64,' + btoa(result);
+        chrome.downloads.download({
+          url: url,
+          filename: 'context-menu-search.json',
+        });
+      });
     });
 
   // Events - Close option window
