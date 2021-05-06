@@ -27,4 +27,4 @@
 
 ### Icons
 
-- https://iconfinder.com/icons/171427/search_zoom_icon
+- [Search, zoom icon](https://iconfinder.com/icons/171427/search_zoom_icon)
