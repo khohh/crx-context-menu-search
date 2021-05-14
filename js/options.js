@@ -6,7 +6,7 @@
  * @property chrome.downloads
  */
 
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', () => {
 
   // Elements
 
@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Initialization
 
-  chrome.storage.sync.get(null, function (storage) {
+  chrome.storage.sync.get(null, (storage) => {
     setFieldsets(storage.fieldsets);
     if (document.querySelectorAll('.remove-fieldset-button').length === 1) {
       document.querySelector('.remove-fieldset-button').classList.add('hidden');
@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Initialization - Examples
 
-  (function () {
+  (() => {
     for (const index in app.initialStorage.fieldsets) {
       const li = document.createElement('li');
       const fieldset = app.initialStorage.fieldsets[index];
@@ -150,7 +150,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   // Events - Sort alphabetically
 
-  sortAlphabeticallyButton.addEventListener('click', function () {
+  sortAlphabeticallyButton.addEventListener('click', () => {
     const fieldsets = listOfFieldsets.querySelectorAll('li');
     const unorderedFieldsets = {};
     for (let i = 0; i < fieldsets.length; i++) {
@@ -160,9 +160,7 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     }
     const orderedFieldsets = {};
-    Object.keys(unorderedFieldsets).sort().forEach(function (key) {
-      orderedFieldsets[key] = unorderedFieldsets[key];
-    });
+    Object.keys(unorderedFieldsets).sort().forEach((key) => orderedFieldsets[key] = unorderedFieldsets[key]);
     listOfFieldsets.innerHTML = '';
     for (let name in orderedFieldsets) {
       listOfFieldsets.appendChild(orderedFieldsets[name]);
