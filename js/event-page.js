@@ -34,6 +34,6 @@ chrome.contextMenus.onClicked.addListener(
   (info) => chrome.storage.sync.get(null, (storage) => {
     let url = storage.fieldsets[info.menuItemId].url;
     url = url.replace('%s', info.selectionText.replace('&', '%26'));
-    window.open(url);
+    window.open(url,'_blank'); // @khohh added '_blank' to open im a new tab 
   })
 );
